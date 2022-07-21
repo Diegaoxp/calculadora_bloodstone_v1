@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>Calculadora Party Bloodstone</title>
+
+</head>
+
+<body>
+    <h2> Confira como será a divisão de experiência do seu grupo</h2>
+    <h5> Preencha os campos abaixo corretamente</h5>
+    <div>
+        <input id="Levelp1" type="text" placeholder="Nível do jogador 1" />
+    </div>
+
+    <div> <input id="Levelp2" type="text" placeholder="Nível do jogador 2"/></div>
+    <div> <input id="Levelp3" type="text" placeholder="Nível do jogador 3"/></div>
+    <div> <input id="Levelp4" type="text" placeholder="Nível do jogador 4"/></div>
+    <div> <input id="Levelp5" type="text" placeholder="Nível do jogador 5"/></div>
+    <button id="calcular">Calcular</button>
+    <p>Resultado:</p>
+    <div id="resultado1"></div>
+    <div id="resultado2"></div>
+    <div id="resultado3"></div>
+    <div id="resultado4"></div>
+    <div id="resultado5"></div>
+
+    <script>
+
+        function calcular() {
+            debugger
+            const Levelp1 = Number(document.getElementById("Levelp1").value);
+            const Levelp2 = Number(document.getElementById("Levelp2").value);
+            const Levelp3 = Number(document.getElementById("Levelp3").value);
+            const Levelp4 = Number(document.getElementById("Levelp4").value);
+            const Levelp5 = Number(document.getElementById("Levelp5").value);
+            const grouplv = Levelp1+Levelp2+Levelp3+Levelp4+Levelp5
+
+
+            var msg = '';
+
+            var msgp1 = `O jogador 1 receberá ${mountmsg(Levelp1, grouplv)}% do total`;
+            var msgp2 = `O jogador 2 receberá ${mountmsg(Levelp2, grouplv)}% do total`;
+            var msgp3 = `O jogador 3 receberá ${mountmsg(Levelp3, grouplv)}% do total`;
+            var msgp4 = `O jogador 4 receberá ${mountmsg(Levelp4, grouplv)}% do total`;
+            var msgp5 = `O jogador 5 receberá ${mountmsg(Levelp5, grouplv)}% do total`;
+
+            showMsg(msgp1, 'resultado1');
+            showMsg(msgp2, 'resultado2');
+            showMsg(msgp3, 'resultado3');
+            showMsg(msgp4, 'resultado4');
+            showMsg(msgp5, 'resultado5');
+
+        }
+
+        function mountmsg(levelplayer, grouplv){
+            return ((levelplayer/grouplv)*100).toFixed(2)
+        }
+
+        function showMsg(msg, element) {
+            document.getElementById(element).innerHTML += msg;
+        }
+
+        document.getElementById('calcular').addEventListener('click', calcular)
+
+
+    </script>
+</body>
+
+</html>
